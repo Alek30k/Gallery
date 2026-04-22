@@ -17,49 +17,49 @@ export default function Gallery() {
       : products.filter((p) => p.category === filter);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
-      {/* Contenedor de Filtros con Glassmorphism */}
-      <div className="flex justify-center mb-16">
-        <nav className="flex gap-1 p-1.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`relative px-6 py-2 text-sm font-medium capitalize transition-colors duration-300 ${
-                filter === cat
-                  ? "text-white"
-                  : "text-gray-400 hover:text-gray-200"
-              }`}
-            >
-              {/* Indicador animado (LayoutId hace la magia) */}
-              {filter === cat && (
-                <motion.div
-                  layoutId="active-pill"
-                  className="absolute inset-0 bg-pink-600 rounded-xl shadow-[0_0_15px_rgba(219,39,119,0.5)]"
-                  transition={{ type: "spring", duration: 0.5 }}
-                />
-              )}
-              <span className="relative z-10">{cat}</span>
-            </button>
-          ))}
-        </nav>
+    <div className="w-full">
+      {/* Contenedor Sticky: Se queda fijo al scrollear en móvil y desktop */}
+      <div className="sticky top-0 z-30 py-4 mb-8 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 -mx-6 px-6">
+        <div className="flex justify-center">
+          <nav className="flex gap-1 p-1 bg-white/5 border border-white/10 rounded-xl overflow-x-auto no-scrollbar max-w-full">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`relative px-5 py-2 text-xs md:text-sm font-medium capitalize transition-colors duration-300 whitespace-nowrap ${
+                  filter === cat
+                    ? "text-white"
+                    : "text-gray-400 hover:text-gray-200"
+                }`}
+              >
+                {filter === cat && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-pink-600 rounded-lg shadow-[0_0_15px_rgba(219,39,119,0.4)]"
+                    transition={{ type: "spring", duration: 0.5 }}
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
+              </button>
+            ))}
+          </nav>
+        </div>
       </div>
 
-      {/* Grid de Galería con AnimatePresence */}
+      {/* Grid de Galería */}
       <motion.div
         layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 px-2"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((item) => (
             <motion.div
               key={item.id}
               layout
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
             >
               <Card item={item} onClick={setSelected} />
             </motion.div>
@@ -67,18 +67,7 @@ export default function Gallery() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Empty State: Por si no hay productos en una categoría */}
-      {filtered.length === 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center py-20 text-gray-500"
-        >
-          No hay diseños disponibles en esta categoría por ahora.
-        </motion.div>
-      )}
-
-      {/* Modal con AnimatePresence para cierre suave */}
+      {/* Modal */}
       <AnimatePresence>
         {selected && (
           <Modal item={selected} onClose={() => setSelected(null)} />
