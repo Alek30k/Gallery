@@ -11,13 +11,13 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* SECCIÓN HERO - Ajustamos el alto para que la flecha quede bien ubicada */}
-        <section className="relative flex flex-col items-center justify-center min-h-[90vh] pt-20 text-center">
+        <section className="relative flex flex-col items-center justify-center min-h-[90vh] pt-0 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest uppercase bg-white/5 border border-white/10 rounded-full text-pink-400 backdrop-blur-sm">
+            <span className="inline-block px-4 py-1.5 mb-10 text-xs font-semibold tracking-widest uppercase bg-white/5 border border-white/10 rounded-full text-pink-400 backdrop-blur-sm">
               ✨ Artesanía Premium en Resina
             </span>
 
@@ -55,7 +55,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           >
             <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold">
               Explorar
@@ -89,7 +89,7 @@ export default function Home() {
         {/* SECCIÓN DE GALERÍA - Le agregamos el ID para el scroll */}
         <section
           id="coleccion"
-          className="py-12 border-t border-white/5 scroll-mt-20"
+          className="py-20 border-t border-white/5 scroll-mt-20"
         >
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-3xl font-bold italic tracking-tight">
