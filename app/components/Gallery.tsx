@@ -5,7 +5,7 @@ import Card from "./Card";
 import Modal from "./Modal";
 import { motion, AnimatePresence } from "framer-motion";
 
-const categories = ["todos", "amor", "letras", "souvenirs"];
+const categories = ["todos", "amor", "letras", "eventos"];
 
 export default function Gallery() {
   const [selected, setSelected] = useState(null);

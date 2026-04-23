@@ -2,7 +2,9 @@ export const products = [
   {
     id: 1,
     name: "Corazón Rosa",
-    image: "/images/llavero1.jpg",
+    images: ["/images/llavero1.png"],
+    description:
+      "Llavero de resina con terminación cristalina y destellos dorados.",
     price: 2500,
     category: "letras",
     customizable: true,
@@ -10,7 +12,8 @@ export const products = [
   {
     id: 2,
     name: "Inicial A",
-    image: "/images/llavero2.jpg",
+    images: ["/images/llavero2.png"],
+    description: "Llavero con inicial de letra en resina.",
     price: 3000,
     category: "letras",
     customizable: true,
@@ -18,7 +21,8 @@ export const products = [
   {
     id: 3,
     name: "Glitter Azul",
-    image: "/images/llavero3.jpg",
+    images: ["/images/llavero3.png"],
+    description: "Llavero con efecto glitter en azul.",
     price: 2800,
     category: "letras",
     customizable: false,
@@ -26,7 +30,8 @@ export const products = [
   {
     id: 4,
     name: "Llavero para tu persona favorita😍✨️🎁",
-    image: "/images/llavero1.png",
+    images: ["/images/llavero1.png", "/images/llavero4-back.png"],
+    description: "Llavero para tu persona favorita con diseño especial.",
     price: 2800,
     category: "amor",
     customizable: false,
@@ -34,7 +39,8 @@ export const products = [
   {
     id: 5,
     name: "Amo a Jesús",
-    image: "/images/llavero2.png",
+    images: ["/images/llavero2.png"],
+    description: "Llavero con mensaje de amor a Jesús.",
     price: 2800,
     category: "amor",
     customizable: false,
@@ -42,9 +48,19 @@ export const products = [
   {
     id: 6,
     name: "Bodas",
-    image: "/images/llavero3.png",
+    images: ["/images/llavero3.png"],
+    description: "Llavero para celebrar tu boda.",
     price: 2800,
-    category: "souvenirs",
+    category: "eventos",
+    customizable: false,
+  },
+  {
+    id: 7,
+    name: "Santa Catalina",
+    images: ["/images/llavero6.jpgs", "/images/llavero7.png"],
+    description: "Llavero de Santa Catalina con diseño especial.",
+    price: 2800,
+    category: "eventos",
     customizable: false,
   },
 ];
