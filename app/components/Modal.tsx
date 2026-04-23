@@ -19,7 +19,7 @@ export default function Modal({ item, onClose }: any) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex   items-start justify-center p-4 py-8">
       {/* Fondo con blur */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -53,19 +53,20 @@ export default function Modal({ item, onClose }: any) {
           {/* FLECHAS: Solo se renderizan si hay más de una imagen */}
           {hasMultipleImages && (
             <>
+              {/* Botones de navegación - Ocultos en mobile para no tapar la foto, aparecen al tocar */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   prevImage();
                 }}
-                className="absolute left-6 p-3 rounded-full bg-white/5 border border-white/10 text-white backdrop-blur-xl hover:bg-white/20 transition-all opacity-0 group-hover:opacity-100"
+                className="absolute left-4 p-2 rounded-full bg-black/50 border border-white/10 text-white backdrop-blur-md md:opacity-0 md:group-hover:opacity-100 transition-all"
               >
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   viewBox="0 0 24 24"
                 >
                   <path d="M15 19l-7-7 7-7" />
@@ -76,30 +77,27 @@ export default function Modal({ item, onClose }: any) {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="absolute right-6 p-3 rounded-full bg-white/5 border border-white/10 text-white backdrop-blur-xl hover:bg-white/20 transition-all opacity-0 group-hover:opacity-100"
+                className="absolute right-4 p-2 rounded-full bg-black/50 border border-white/10 text-white backdrop-blur-md md:opacity-0 md:group-hover:opacity-100 transition-all"
               >
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2.5"
+                  strokeWidth="3"
                   viewBox="0 0 24 24"
                 >
                   <path d="M9 5l7 7-7 7" />
                 </svg>
               </button>
 
-              {/* INDICADOR DE PUNTOS: Solo si hay varias imágenes */}
-              <div className="absolute bottom-8 flex gap-2.5">
+              {/* Indicador de puntitos ajustado */}
+              <div className="absolute bottom-6 flex gap-2">
                 {item.images.map((_: any, i: number) => (
-                  <button
+                  <div
                     key={i}
-                    onClick={() => setIndex(i)}
-                    className={`h-1.5 transition-all duration-500 rounded-full ${
-                      index === i
-                        ? "w-8 bg-pink-500"
-                        : "w-1.5 bg-white/20 hover:bg-white/40"
+                    className={`h-1 transition-all duration-300 rounded-full ${
+                      index === i ? "w-6 bg-pink-500" : "w-1.5 bg-white/20"
                     }`}
                   />
                 ))}
@@ -107,13 +105,12 @@ export default function Modal({ item, onClose }: any) {
             </>
           )}
         </div>
-
         {/* SECCIÓN DETALLES */}
-        <div className="p-10 md:w-2/5 flex flex-col relative">
-          {/* Botón cerrar */}
+        <div className="p-6 md:p-10 md:w-2/5 flex flex-col justify-between bg-[#0a0a0a]">
+          {/* Botón cerrar flotante para móvil para que siempre esté visible */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 p-2 text-gray-500 hover:text-white transition-colors"
+            className="absolute top-4 right-4 z-50 p-2 bg-black/20 backdrop-blur-lg rounded-full text-gray-400 hover:text-white"
           >
             <svg
               width="24"
@@ -127,41 +124,29 @@ export default function Modal({ item, onClose }: any) {
             </svg>
           </button>
 
-          <div className="mt-4">
-            <span className="px-3 py-1 bg-pink-500/10 text-pink-500 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full border border-pink-500/20">
+          <div>
+            <span className="px-3 py-1 bg-pink-500/10 text-pink-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-pink-500/20">
               {item.category}
             </span>
-            <h2 className="text-4xl font-bold mt-6 mb-4 tracking-tight leading-none">
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-2 tracking-tight">
               {item.name}
             </h2>
-            <p className="text-2xl text-white font-light mb-6">
+            <p className="text-xl text-white font-light mb-4">
               <span className="text-pink-500 font-bold">$</span>
               {item.price}
             </p>
-            <p className="text-gray-400 leading-relaxed text-sm mb-10">
-              {item.description ||
-                "Llavero de resina artesanal con acabados premium y diseño exclusivo."}
+            <p className="text-gray-400 leading-relaxed text-sm mb-8">
+              {item.description || "Pieza artesanal de alta calidad."}
             </p>
           </div>
 
-          <div className="mt-auto">
-            <a
-              href={`https://wa.me/549XXXXXXXXXX?text=Hola! Me interesa este diseño: ${item.name}`}
-              target="_blank"
-              className="group relative flex items-center justify-center w-full py-4 bg-white text-black font-bold rounded-2xl overflow-hidden transition-all hover:pr-8"
-            >
-              <span className="relative z-10">Pedir por WhatsApp</span>
-              <svg
-                className="absolute right-6 opacity-0 group-hover:opacity-100 transition-all w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M13 7l5 5-5 5M6 12h12" />
-              </svg>
-            </a>
-          </div>
+          <a
+            href={`https://wa.me/549XXXXXXXXXX?text=Hola! Me interesa: ${item.name}`}
+            target="_blank"
+            className="flex items-center justify-center w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-pink-500 hover:text-white transition-all shadow-lg active:scale-95"
+          >
+            Hacer Pedido por WhatsApp
+          </a>
         </div>
       </motion.div>
     </div>
