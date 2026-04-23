@@ -19,7 +19,7 @@ export default function Modal({ item, onClose }: any) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex   items-start justify-center p-4 py-8">
+    <div className="fixed inset-0 z-[100] flex overflow-y-auto  items-start justify-center p-2 py-8 bg-black/95 backdrop-blur-md">
       {/* Fondo con blur */}
       <motion.div
         initial={{ opacity: 0 }}
