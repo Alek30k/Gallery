@@ -9,7 +9,7 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-pink-900/20 via-transparent to-transparent blur-[120px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 md:px-6 relative z-10">
         {/* SECCIÓN HERO - Ajustamos el alto para que la flecha quede bien ubicada */}
         <section className="relative flex flex-col items-center justify-center min-h-[90vh] pt-0 text-center">
           <motion.div
