@@ -110,7 +110,7 @@ export default function Home() {
 
       {/* Botón Flotante WhatsApp (Premium) */}
       <a
-        href="https://wa.me/+5493718462342"
+        href="https://wa.me/+5493718462342?text=Hola!"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 group flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#22bf5b] text-white p-4 rounded-full shadow-lg shadow-green-500/25 transition-all duration-300 hover:-translate-y-1 z-50"

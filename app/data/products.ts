@@ -86,4 +86,13 @@ export const products = [
     category: "letras",
     customizable: false,
   },
+  {
+    id: 10,
+    name: "Letra R",
+    images: ["/images/llavero8.png"],
+    description: "Llavero con letra R, personalizable con tu nombre",
+    price: 2800,
+    category: "letras",
+    customizable: false,
+  },
 ];

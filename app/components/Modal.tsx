@@ -141,9 +141,9 @@ export default function Modal({ item, onClose }: any) {
           </div>
 
           <a
-            href={`https://wa.me/549XXXXXXXXXX?text=Hola! Me interesa: ${item.name}`}
+            href={`https://wa.me/5493718462342?text=Hola! Me interesa el llavero: ${item.name}`}
             target="_blank"
-            className="flex items-center justify-center w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-pink-500 hover:text-white transition-all shadow-lg active:scale-95"
+            className="w-full py-4 bg-white text-black font-bold rounded-2xl text-center hover:bg-pink-500 hover:text-white transition-all shadow-xl"
           >
             Hacer Pedido por WhatsApp
           </a>
