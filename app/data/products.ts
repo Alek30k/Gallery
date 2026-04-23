@@ -6,7 +6,7 @@ export const products = [
     description:
       "Llavero para tu persona favorita con diseño especial. Personalízalo con el nombre o mensaje que quieras para hacerlo único y especial.",
     price: 2500,
-    category: "eventos",
+    category: "amor",
     customizable: true,
   },
   {
@@ -26,7 +26,7 @@ export const products = [
     description:
       "Llavero de resina con diseño de boda, ideal para regalar a los invitados.",
     price: 2800,
-    category: "amor",
+    category: "eventos",
     customizable: false,
   },
   {
@@ -57,6 +57,33 @@ export const products = [
     description: "Llavero de Santa Catalina con diseño especial.",
     price: 2800,
     category: "todos",
+    customizable: false,
+  },
+  {
+    id: 7,
+    name: "Letra A",
+    images: ["/images/llavero1.jpg"],
+    description: "Llavero con letra A, personalizable con tu nombre",
+    price: 2800,
+    category: "letras",
+    customizable: false,
+  },
+  {
+    id: 8,
+    name: "Letra S",
+    images: ["/images/llavero2.jpg"],
+    description: "Llavero con letra S, personalizable con tu nombre",
+    price: 2800,
+    category: "letras",
+    customizable: false,
+  },
+  {
+    id: 9,
+    name: "Letra k",
+    images: ["/images/llavero3.jpg"],
+    description: "Llavero con letra k, personalizable con tu nombre",
+    price: 2800,
+    category: "letras",
     customizable: false,
   },
 ];
