@@ -19,14 +19,14 @@ export default function Gallery() {
   return (
     <div className="w-full">
       {/* Contenedor Sticky: Se queda fijo al scrollear en móvil y desktop */}
-      <div className="sticky top-0 z-40 bg-[#050505]/80 backdrop-blur-md py-4 -mx-6 px-2 md:px-6">
+      <div className="sticky top-0 z-40 bg-[#050505]/80 backdrop-blur-md py-4 -mx-4 px-2 md:px-6">
         <div className="flex justify-center">
           <nav className="flex gap-1 p-1 bg-white/5 border border-white/10 rounded-xl overflow-x-auto no-scrollbar max-w-full">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`relative px-5  text-xs md:text-sm font-medium capitalize transition-colors duration-300 whitespace-nowrap ${
+                className={`relative px-5 py-2 text-xs md:text-sm font-medium capitalize transition-colors duration-300 whitespace-nowrap ${
                   filter === cat
                     ? "text-white"
                     : "text-gray-400 hover:text-gray-200"
