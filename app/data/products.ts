@@ -62,7 +62,7 @@ export const products = [
   {
     id: 7,
     name: "Letra A",
-    images: ["/images/llavero1.jpg"],
+    images: ["/images/llavero1.1.png"],
     description: "Llavero con letra A, personalizable con tu nombre",
     price: 2800,
     category: "letras",
