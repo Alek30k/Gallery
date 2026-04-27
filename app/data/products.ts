@@ -38,7 +38,7 @@ export const products = [
     price: 2800,
     category: "amor",
     customizable: false,
-  },"/images/llavero4.png"
+  },
   {
     id: 5,
     name: "Sagrado Corazón",
