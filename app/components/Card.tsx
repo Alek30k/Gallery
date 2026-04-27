@@ -35,10 +35,10 @@ export default function Card({ item, onClick }: any) {
           </h2>
 
           <div className="flex items-center justify-between mt-4">
-            <p className="text-white text-xl font-light">
+            {/* <p className="text-white text-xl font-light">
               <span className="text-sm opacity-60 mr-1">$</span>
               {item.price}
-            </p>
+            </p> */}
 
             {item.customizable && (
               <span className="text-[10px] bg-white/10 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">

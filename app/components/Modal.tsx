@@ -131,10 +131,10 @@ export default function Modal({ item, onClose }: any) {
             <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-2 tracking-tight">
               {item.name}
             </h2>
-            <p className="text-xl text-white font-light mb-4">
+            {/* <p className="text-xl text-white font-light mb-4">
               <span className="text-pink-500 font-bold">$</span>
               {item.price}
-            </p>
+            </p> */}
             <p className="text-gray-400 leading-relaxed text-sm mb-8">
               {item.description || "Pieza artesanal de alta calidad."}
             </p>
