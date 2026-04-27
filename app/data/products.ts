@@ -38,11 +38,11 @@ export const products = [
     price: 2800,
     category: "amor",
     customizable: false,
-  },
+  },"/images/llavero4.png"
   {
     id: 5,
     name: "Sagrado Corazón",
-    images: ["/images/llavero5.png"],
+    images: ["/images/llavero5.png", "/images/llavero4.png"],
     description:
       "Llavero de resina con diseño de sagrado corazón, ideal para regalar a tu persona especial.",
     price: 2800,
