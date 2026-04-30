@@ -16,7 +16,7 @@ export default function Card({ item, onClick }: any) {
       {/* Contenedor de Imagen */}
       <div className="relative h-[480px] overflow-hidden">
         <img
-          src={mainImage} // <--- AQUÍ ESTABA EL ERROR
+          src={mainImage} 
           alt={item.name}
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />

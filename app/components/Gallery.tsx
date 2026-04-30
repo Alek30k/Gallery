@@ -5,7 +5,7 @@ import Card from "./Card";
 import Modal from "./Modal";
 import { motion, AnimatePresence } from "framer-motion";
 
-const categories = ["todos", "amor", "letras", "eventos"];
+const categories = ["todos", "amor", "letras", "niños", "eventos"];
 
 export default function Gallery() {
   const [selected, setSelected] = useState(null);
@@ -21,28 +21,38 @@ export default function Gallery() {
       {/* Contenedor Sticky: Se queda fijo al scrollear en móvil y desktop */}
       <div className="sticky top-0 z-40 bg-[#050505]/80 backdrop-blur-md py-4 -mx-4 px-2 md:px-6">
         <div className="flex justify-center">
-          <nav className="flex gap-1 p-1 bg-white/5 border border-white/10 rounded-xl overflow-x-auto no-scrollbar max-w-full">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`relative px-5 py-2 text-xs md:text-sm font-medium capitalize transition-colors duration-300 whitespace-nowrap ${
-                  filter === cat
-                    ? "text-white"
-                    : "text-gray-400 hover:text-gray-200"
-                }`}
-              >
-                {filter === cat && (
-                  <motion.div
-                    layoutId="active-pill"
-                    className="absolute inset-0 bg-pink-600 rounded-lg shadow-[0_0_15px_rgba(219,39,119,0.4)]"
-                    transition={{ type: "spring", duration: 0.5 }}
-                  />
-                )}
-                <span className="relative z-10">{cat}</span>
-              </button>
-            ))}
-          </nav>
+          <div className="sticky top-0 z-40 bg-[#050505]/75 backdrop-blur-xl py-3 mb-6">
+            <div className="w-full overflow-x-auto no-scrollbar px-2">
+              <nav className="flex gap-2 min-w-max">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setFilter(cat)}
+                    className={`relative px-4 md:px-5 py-2 text-[11px] md:text-sm cursor-pointer font-medium capitalize rounded-full whitespace-nowrap transition-all duration-300
+            ${
+              filter === cat
+                ? "text-white"
+                : "text-gray-400 border border-white/10 bg-white/5"
+            }`}
+                  >
+                    {filter === cat && (
+                      <motion.div
+                        layoutId="active-pill"
+                        className="absolute inset-0 bg-pink-600 rounded-full shadow-[0_0_14px_rgba(219,39,119,0.35)]"
+                        transition={{
+                          type: "spring",
+                          stiffness: 260,
+                          damping: 22,
+                        }}
+                      />
+                    )}
+
+                    <span className="relative z-10">{cat}</span>
+                  </button>
+                ))}
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
 
