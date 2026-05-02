@@ -30,7 +30,7 @@ export default function Modal({ item, onClose }: any) {
         className="absolute inset-0"
       />
 
-      {/* botón cerrar */}
+      {/* cerrar */}
       <button
         onClick={onClose}
         className="fixed top-5 right-5 z-[120] border border-white/15 px-4 py-2 rounded-full text-xs text-white hover:bg-white hover:text-black transition"
@@ -39,14 +39,21 @@ export default function Modal({ item, onClose }: any) {
       </button>
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 40 }}
+        exit={{ opacity: 0, y: 35 }}
         transition={{ duration: 0.45 }}
         className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center gap-8 px-4 md:px-10 py-20 max-w-7xl mx-auto"
       >
-        {/* IMAGEN FULL */}
-        <div className="relative w-full lg:w-[58%] h-[420px] md:h-[75vh] flex items-center justify-center group">
+        {/* IMAGEN */}
+        <div
+          className={`relative w-full lg:w-[58%] h-[420px] md:h-[75vh] flex items-center justify-center group rounded-[30px]
+          ${
+            item.featured
+              ? "ring-1 ring-pink-500/20 shadow-[0_0_50px_rgba(219,39,119,0.08)]"
+              : ""
+          }`}
+        >
           <AnimatePresence mode="wait">
             <motion.img
               key={index}
@@ -56,9 +63,16 @@ export default function Modal({ item, onClose }: any) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -25 }}
               transition={{ duration: 0.45 }}
-              className="w-full h-full object-contain rounded-[28px] shadow-[0_10px_60px_rgba(0,0,0,0.55)]"
+              className="w-full h-full object-contain rounded-[30px] shadow-[0_10px_60px_rgba(0,0,0,0.55)]"
             />
           </AnimatePresence>
+
+          {/* badge */}
+          {item.tag && (
+            <div className="absolute top-5 left-5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-[2px] text-white">
+              {item.tag}
+            </div>
+          )}
 
           {/* flechas */}
           {hasMultipleImages && (
@@ -100,33 +114,34 @@ export default function Modal({ item, onClose }: any) {
         </div>
 
         {/* DETALLES */}
-        <div className="w-full lg:w-[380px] text-white px-2">
-          <p className="text-[10px] uppercase tracking-[3px] text-gray-500 mb-4">
+        <div className="w-full lg:w-[390px] text-white px-2">
+          <p className="text-[10px] uppercase tracking-[3px] text-gray-500 mb-3">
             Colección artesanal
           </p>
 
-          <h2 className="text-3xl md:text-4xl  leading-tight font-bold mt-4 mb-2 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-light tracking-wide leading-tight">
             {item.name}
           </h2>
 
-          <p className="mt-5 text-sm text-gray-400 leading-7">
-            {item.description ||
-              "Pieza elaborada cuidadosamente en resina con acabados delicados y detalles únicos para regalar o recordar momentos especiales."}
+          {/* <p className="mt-3 text-xs uppercase tracking-[2px] text-gray-400">
+            {item.subtitle}
+          </p> */}
+
+          {/* <p className="mt-6 text-2xl text-gray-200">${item.price}</p> */}
+
+          <p className="mt-6 text-sm text-gray-400 leading-7">
+            {item.description}
           </p>
 
-          <div className="mt-8 space-y-2 text-xs text-gray-500 uppercase tracking-[2px]">
-            <p>
-              Categoría · {""}
-              <span className="px-3 py-1 bg-pink-500/10 text-pink-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-pink-500/20">
-                {item.category}
-              </span>
-            </p>
+          <div className="mt-8 space-y-2 text-xs uppercase tracking-[2px] text-gray-500">
+            <p>Categoría · {item.category}</p>
+            {item.customizable && <p>Diseño personalizable</p>}
           </div>
 
           <a
             href={generateWhatsAppLink(item)}
             target="_blank"
-            className="inline-block  text-pink-500 mt-10 border border-white px-8 py-3 rounded-full text-sm hover:bg-white hover:text-black transition"
+            className="inline-block mt-10 border border-white px-8 py-3 rounded-full text-sm hover:bg-white hover:text-black transition"
           >
             Hacer Pedido
           </a>
