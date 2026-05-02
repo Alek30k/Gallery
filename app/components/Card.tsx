@@ -41,19 +41,21 @@ export default function Card({ item, onClick }: any) {
         )}
 
         {/* Info inferior */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h2 className="text-xl font-light tracking-wide leading-tight">
+        <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 text-white bg-gradient-to-t from-black/95 via-black/78 to-transparent backdrop-blur-[2px]">
+          <h2 className="text-xl md:text-xl font-light tracking-wide leading-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
             {item.name}
           </h2>
 
-          <p className="mt-2 text-xs uppercase tracking-[2px] text-gray-400">
+          <p className="mt-2 text-[11px] md:text-xs uppercase tracking-[2px] text-gray-300 drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
             {item.subtitle}
           </p>
 
-          <p className="mt-4 text-lg text-gray-200">${item.price}</p>
+          <p className="mt-3 text-lg text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            ${item.price}
+          </p>
 
           {item.customizable && (
-            <p className="mt-2 text-[11px] text-pink-300 tracking-[2px] uppercase">
+            <p className="mt-2 text-[10px] text-pink-300 tracking-[2px] uppercase drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
               Personalizable
             </p>
           )}
