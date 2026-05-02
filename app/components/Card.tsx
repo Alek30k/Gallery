@@ -50,10 +50,6 @@ export default function Card({ item, onClick }: any) {
             {item.subtitle}
           </p>
 
-          <p className="mt-3 text-lg text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            ${item.price}
-          </p>
-
           {item.customizable && (
             <p className="mt-2 text-[10px] text-pink-300 tracking-[2px] uppercase drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
               Personalizable
