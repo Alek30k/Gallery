@@ -1,11 +1,12 @@
 "use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { generateWhatsAppLink } from "../lib/whatsapp";
 
 export default function Modal({ item, onClose }: any) {
   const [index, setIndex] = useState(0);
 
-  // Verificamos cuántas imágenes hay
   const hasMultipleImages = item.images && item.images.length > 1;
 
   const nextImage = () => {
@@ -19,85 +20,77 @@ export default function Modal({ item, onClose }: any) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex overflow-y-auto  items-start justify-center p-2 py-8 bg-black/95 backdrop-blur-md">
-      {/* Fondo con blur */}
+    <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl overflow-y-auto">
+      {/* fondo click */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="absolute inset-0 bg-black/95 backdrop-blur-md"
+        className="absolute inset-0"
       />
 
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0, y: 20 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0, y: 20 }}
-        className="relative bg-[#0a0a0a] border border-white/10 rounded-[2.5rem] overflow-hidden max-w-5xl w-full shadow-2xl flex flex-col md:flex-row h-auto md:h-[600px]"
+      {/* botón cerrar */}
+      <button
+        onClick={onClose}
+        className="fixed top-5 right-5 z-[120] border border-white/15 px-4 py-2 rounded-full text-xs text-white hover:bg-white hover:text-black transition"
       >
-        {/* SECCIÓN IMAGEN / CAROUSEL */}
-        <div className="relative w-full md:w-3/5 h-[400px] md:h-full bg-black flex items-center justify-center group">
+        Cerrar
+      </button>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 40 }}
+        transition={{ duration: 0.45 }}
+        className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center gap-8 px-4 md:px-10 py-20 max-w-7xl mx-auto"
+      >
+        {/* IMAGEN FULL */}
+        <div className="relative w-full lg:w-[58%] h-[420px] md:h-[75vh] flex items-center justify-center group">
           <AnimatePresence mode="wait">
             <motion.img
               key={index}
               src={item.images[index]}
               alt={item.name}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 25 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.4, ease: "circOut" }}
-              className="w-full h-full object-contain p-4"
+              exit={{ opacity: 0, x: -25 }}
+              transition={{ duration: 0.45 }}
+              className="w-full h-full object-contain rounded-[28px] shadow-[0_10px_60px_rgba(0,0,0,0.55)]"
             />
           </AnimatePresence>
 
-          {/* FLECHAS: Solo se renderizan si hay más de una imagen */}
+          {/* flechas */}
           {hasMultipleImages && (
             <>
-              {/* Botones de navegación - Ocultos en mobile para no tapar la foto, aparecen al tocar */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   prevImage();
                 }}
-                className="absolute left-4 p-2 rounded-full bg-black/50 border border-white/10 text-white backdrop-blur-md md:opacity-0 md:group-hover:opacity-100 transition-all"
+                className="absolute left-3 md:left-6 p-3 rounded-full bg-black/40 border border-white/10 text-white backdrop-blur-lg md:opacity-0 md:group-hover:opacity-100 transition"
               >
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M15 19l-7-7 7-7" />
-                </svg>
+                ‹
               </button>
+
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   nextImage();
                 }}
-                className="absolute right-4 p-2 rounded-full bg-black/50 border border-white/10 text-white backdrop-blur-md md:opacity-0 md:group-hover:opacity-100 transition-all"
+                className="absolute right-3 md:right-6 p-3 rounded-full bg-black/40 border border-white/10 text-white backdrop-blur-lg md:opacity-0 md:group-hover:opacity-100 transition"
               >
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
+                ›
               </button>
 
-              {/* Indicador de puntitos ajustado */}
-              <div className="absolute bottom-6 flex gap-2">
+              <div className="absolute bottom-5 flex gap-2">
                 {item.images.map((_: any, i: number) => (
                   <div
                     key={i}
-                    className={`h-1 transition-all duration-300 rounded-full ${
-                      index === i ? "w-6 bg-pink-500" : "w-1.5 bg-white/20"
+                    className={`rounded-full transition-all duration-300 ${
+                      index === i
+                        ? "w-7 h-[3px] bg-pink-500"
+                        : "w-2 h-[3px] bg-white/20"
                     }`}
                   />
                 ))}
@@ -105,47 +98,33 @@ export default function Modal({ item, onClose }: any) {
             </>
           )}
         </div>
-        {/* SECCIÓN DETALLES */}
-        <div className="p-6 md:p-10 md:w-2/5 flex flex-col justify-between bg-[#0a0a0a]">
-          {/* Botón cerrar flotante para móvil para que siempre esté visible */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-50 p-2 bg-black/20 backdrop-blur-lg rounded-full text-gray-400 hover:text-white"
-          >
-            <svg
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
 
-          <div>
-            <span className="px-3 py-1 bg-pink-500/10 text-pink-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-pink-500/20">
-              {item.category}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-2 tracking-tight">
-              {item.name}
-            </h2>
-            {/* <p className="text-xl text-white font-light mb-4">
-              <span className="text-pink-500 font-bold">$</span>
-              {item.price}
-            </p> */}
-            <p className="text-gray-400 leading-relaxed text-sm mb-8">
-              {item.description || "Pieza artesanal de alta calidad."}
-            </p>
+        {/* DETALLES */}
+        <div className="w-full lg:w-[380px] text-white px-2">
+          <p className="text-[10px] uppercase tracking-[3px] text-gray-500 mb-4">
+            Colección artesanal
+          </p>
+
+          <h2 className="text-3xl md:text-4xl font-light tracking-wide leading-tight">
+            {item.name}
+          </h2>
+
+          <p className="mt-5 text-sm text-gray-400 leading-7">
+            {item.description ||
+              "Pieza elaborada cuidadosamente en resina con acabados delicados y detalles únicos para regalar o recordar momentos especiales."}
+          </p>
+
+          <div className="mt-8 space-y-2 text-xs text-gray-500 uppercase tracking-[2px]">
+            <p>Categoría · {item.category}</p>
+            {item.customizable && <p>Diseño personalizable</p>}
           </div>
 
           <a
-            href={`https://wa.me/5493718462342?text=Hola! Me interesa el llavero: ${item.name}`}
+            href={generateWhatsAppLink(item)}
             target="_blank"
-            className="w-full py-4 bg-white text-black font-bold rounded-2xl text-center hover:bg-pink-500 hover:text-white transition-all shadow-xl"
+            className="inline-block mt-10 border border-white px-8 py-3 rounded-full text-sm hover:bg-white hover:text-black transition"
           >
-            Hacer Pedido por WhatsApp
+            Hacer Pedido
           </a>
         </div>
       </motion.div>
