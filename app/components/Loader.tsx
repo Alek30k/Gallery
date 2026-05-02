@@ -16,7 +16,7 @@ export default function Loader({ loading }: { loading: boolean }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl md:text-5xl font-light tracking-[6px]"
+            className="text-3xl md:text-5xl text-center font-light tracking-[6px]"
           >
             LLAVEROS PERSONALIZABLE
           </motion.h1>
