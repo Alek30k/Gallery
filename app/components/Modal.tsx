@@ -105,7 +105,7 @@ export default function Modal({ item, onClose }: any) {
             Colección artesanal
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-light tracking-wide leading-tight">
+          <h2 className="text-3xl md:text-4xl  leading-tight font-bold mt-4 mb-2 tracking-tight">
             {item.name}
           </h2>
 
@@ -115,14 +115,18 @@ export default function Modal({ item, onClose }: any) {
           </p>
 
           <div className="mt-8 space-y-2 text-xs text-gray-500 uppercase tracking-[2px]">
-            <p>Categoría · {item.category}</p>
-            {item.customizable && <p>Diseño personalizable</p>}
+            <p>
+              Categoría · {""}
+              <span className="px-3 py-1 bg-pink-500/10 text-pink-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-pink-500/20">
+                {item.category}
+              </span>
+            </p>
           </div>
 
           <a
             href={generateWhatsAppLink(item)}
             target="_blank"
-            className="inline-block mt-10 border border-white px-8 py-3 rounded-full text-sm hover:bg-white hover:text-black transition"
+            className="inline-block  text-pink-500 mt-10 border border-white px-8 py-3 rounded-full text-sm hover:bg-white hover:text-black transition"
           >
             Hacer Pedido
           </a>
