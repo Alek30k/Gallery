@@ -18,7 +18,7 @@ export default function FloatingWhatsApp() {
 
       {/* button */}
       <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/10 backdrop-blur-xl flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.06)] bg-[#25D366] hover:bg-[#22bf5b] text-white">
-        {/* <MessageCircle size={22} className="text-white" /> */}
+      
         <svg
           className="w-7 h-7"
           fill="currentColor"
