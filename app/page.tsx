@@ -108,16 +108,13 @@ export default function Home() {
           </section>
 
           {/* SECCIÓN DE GALERÍA - Le agregamos el ID para el scroll */}
-          <section
-            id="coleccion"
-            className="py-20 border-t border-white/5 scroll-mt-20"
-          >
-            <div className="flex items-center justify-between mb-12">
+          <section id="coleccion" className="py-20 scroll-mt-20">
+            {/* <div className="flex items-center justify-between mb-12">
               <h2 className="text-3xl font-bold italic tracking-tight">
                 Nuestra Colección
               </h2>
               <div className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent ml-8 hidden md:block" />
-            </div>
+            </div> */}
 
             <Gallery />
           </section>

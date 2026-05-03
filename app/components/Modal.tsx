@@ -133,15 +133,20 @@ export default function Modal({ item, onClose }: any) {
             {item.description}
           </p>
 
-          <div className="mt-8 space-y-2 text-xs uppercase tracking-[2px] text-gray-500">
-            <p>Categoría · {item.category}</p>
+          <div className="mt-8 space-y-2 text-xs uppercase tracking-[2px] text-gray-500 ">
+            <p>
+              Categoría ·{" "}
+              <span className="px-3 py-1 bg-pink-500/10 text-pink-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-pink-500/20">
+                {item.category}
+              </span>
+            </p>
             {item.customizable && <p>Diseño personalizable</p>}
           </div>
 
           <a
             href={generateWhatsAppLink(item)}
             target="_blank"
-            className="inline-block mt-10 border border-white px-8 py-3 rounded-full text-sm hover:bg-white hover:text-black transition"
+            className="inline-block mt-10 border text-pink-500 border-white px-8 py-3 rounded-full text-sm hover:bg-white hover:text-black transition"
           >
             Hacer Pedido
           </a>
