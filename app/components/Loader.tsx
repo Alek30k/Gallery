@@ -32,7 +32,7 @@ export default function Loader({ loading }: { loading: boolean }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.6 }}
             transition={{ duration: 1, delay: 0.9 }}
-            className="mt-4 px-5 text-[14px] tracking-[4px] uppercase"
+            className="mt-4 px-5 text-center text-[14px] tracking-[4px] uppercase"
           >
             Colección de resina hecha a mano
           </motion.p>

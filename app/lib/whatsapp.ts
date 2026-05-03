@@ -3,7 +3,6 @@ export const generateWhatsAppLink = (product: any) => {
   const text = `Hola! 👋 Quiero consultar por este llavero:
 
 🧩 Producto: ${product.name}
-💰 Precio: $${product.price}
 🎨 Personalizable: ${product.customizable ? "Sí" : "No"}
 
 ¿Está disponible?`;
