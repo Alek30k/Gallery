@@ -10,7 +10,7 @@ export const products = [
     category: "amor",
     customizable: true,
     tag: "Personalizado",
-    featured: true,
+    featured: false,
   },
   // {
   //   id: 2,
@@ -129,7 +129,7 @@ export const products = [
     category: "niños",
     customizable: true,
     tag: "Infantil",
-    featured: false,
+    featured: true,
   },
   {
     id: 10,
