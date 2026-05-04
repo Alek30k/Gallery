@@ -5,6 +5,7 @@ import { products } from "../data/products";
 import Card from "./Card";
 import Modal from "./Modal";
 import { motion, AnimatePresence } from "framer-motion";
+import FeaturedCarousel from "./FeaturedCarousel";
 
 const categories = ["todos", "amor", "letras", "niños", "eventos"];
 
@@ -17,8 +18,11 @@ export default function Gallery() {
       ? products
       : products.filter((p) => p.category === filter);
 
+  const featuredItems = products.filter((p) => p.featured);
+
   return (
     <div className="w-full max-w-6xl mx-auto">
+      <FeaturedCarousel items={featuredItems} onSelect={setSelected} />
       {/* NAV STICKY PREMIUM */}
       <div className="sticky top-0 z-40 bg-[#050505]/75 backdrop-blur-xl py-3 mb-8 shadow-[0_8px_30px_rgba(0,0,0,0.45)]">
         <div className="w-full overflow-x-auto no-scrollbar px-3">
