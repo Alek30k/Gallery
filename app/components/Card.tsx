@@ -19,7 +19,8 @@ export default function Card({ item, onClick }: any) {
         }`}
       >
         {/* Imagen */}
-        <img
+        <motion.img
+          layoutId={`product-image-${item.id}`}
           src={item.images[0]}
           alt={item.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
