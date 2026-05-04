@@ -21,14 +21,14 @@ export default function FeaturedCarousel({ items, onSelect }: any) {
         <div className="w-14 h-[1px] bg-white/20 mx-auto mb-4" />
 
         <p className="text-[10px] uppercase tracking-[4px] text-gray-500 mb-3">
-          Featured Selection
+          Más Vendidas{" "}
         </p>
 
         <h2 className="text-2xl md:text-4xl font-light tracking-wide text-white">
           Piezas más elegidas
         </h2>
 
-        <p className="mt-4 text-sm md:text-base text-gray-400 max-w-2xl mx-auto leading-7">
+        <p className="hidden md:block t-4 text-sm md:text-base text-gray-400 max-w-2xl mx-auto leading-7">
           Una selección de nuestros diseños personalizados más pedidos para
           regalar, sorprender y conservar momentos especiales.
         </p>
