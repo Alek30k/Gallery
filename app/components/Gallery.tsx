@@ -26,17 +26,17 @@ export default function Gallery() {
       {/* NAV STICKY PREMIUM */}
       <div className="sticky top-0 z-40 bg-[#050505]/75 backdrop-blur-xl py-3 mb-8 shadow-[0_8px_30px_rgba(0,0,0,0.45)]">
         <div className="w-full overflow-x-auto no-scrollbar px-3">
-          <nav className="flex gap-2 min-w-max">
+          <nav className="grid grid-cols-3 sm:grid-cols-5 gap-2 w-full max-w-xl mx-auto md:flex md:justify-center md:gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`relative px-4 md:px-5 py-2 text-[11px] md:text-sm font-medium capitalize rounded-full whitespace-nowrap transition-all duration-300 cursor-pointer
-                ${
-                  filter === cat
-                    ? "text-white"
-                    : "text-gray-400 bg-white/5 border border-white/10"
-                }`}
+                className={`relative w-full md:w-auto px-2 md:px-5 py-2 text-[10px] md:text-sm font-medium capitalize rounded-full transition-all duration-300 cursor-pointer
+      ${
+        filter === cat
+          ? "text-white"
+          : "text-gray-400 bg-white/5 border border-white/10"
+      }`}
               >
                 {filter === cat && (
                   <motion.div
@@ -50,7 +50,7 @@ export default function Gallery() {
                   />
                 )}
 
-                <span className="relative z-10">{cat}</span>
+                <span className="relative z-10 block truncate">{cat}</span>
               </button>
             ))}
           </nav>
