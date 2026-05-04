@@ -38,19 +38,7 @@ export const products = [
     tag: "Evento",
     featured: false,
   },
-  {
-    id: 4,
-    name: "Óvalo & Corazón",
-    subtitle: "Detalle fino para regalar",
-    images: ["/images/llavero4.png"],
-    description:
-      "Combinación delicada de formas clásicas con terminación brillante y presencia sofisticada.",
 
-    category: "amor",
-    customizable: false,
-    tag: "Exclusivo",
-    featured: false,
-  },
   {
     id: 5,
     name: "Sagrado Corazón",
