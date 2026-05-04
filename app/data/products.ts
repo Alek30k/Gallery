@@ -12,19 +12,19 @@ export const products = [
     tag: "Personalizado",
     featured: true,
   },
-  {
-    id: 2,
-    name: "Corazón Personalizado",
-    subtitle: "Recuerdo especial hecho a mano",
-    images: ["/images/llavero2.png"],
-    description:
-      "Corazón artesanal ideal para nombres, fechas o frases significativas que quieras conservar.",
+  // {
+  //   id: 2,
+  //   name: "Corazón Personalizado",
+  //   subtitle: "Recuerdo especial hecho a mano",
+  //   images: ["/images/llavero2.png"],
+  //   description:
+  //     "Corazón artesanal ideal para nombres, fechas o frases significativas que quieras conservar.",
 
-    category: "amor",
-    customizable: true,
-    tag: "Favorito",
-    featured: true,
-  },
+  //   category: "amor",
+  //   customizable: true,
+  //   tag: "Favorito",
+  //   featured: true,
+  // },
   {
     id: 3,
     name: "Recuerdo de Boda",
@@ -142,7 +142,7 @@ export const products = [
     category: "niños",
     customizable: false,
     tag: "Top Kids",
-    featured: false,
+    featured: true,
   },
   {
     id: 11,
