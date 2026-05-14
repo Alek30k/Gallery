@@ -40,7 +40,7 @@ export default function Gallery() {
     <div className="w-full max-w-6xl mx-auto">
       {/* ================= FEATURED ================= */}
       {featuredItems.length > 0 && (
-        <div className="mb-12 md:mb-16">
+        <div className="hidden md:block mb-102 md:mb-16">
           <FeaturedCarousel items={featuredItems} onSelect={setSelected} />
         </div>
       )}

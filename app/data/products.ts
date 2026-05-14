@@ -154,7 +154,7 @@ export const products = [
       "Llavero juvenil moderno con temática pop ideal para fans y regalos originales.",
 
     category: "niños",
-    customizable: false,
+    customizable: true,
     tag: "Juvenil",
     featured: false,
   },
